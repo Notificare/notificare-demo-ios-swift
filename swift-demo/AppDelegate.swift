@@ -66,6 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
     
     func notificarePushLib(library: NotificarePushLib!, didUpdateBadge badge: Int32) {
         //
+        NSNotificationCenter.defaultCenter().postNotificationName("updateInbox", object: nil)
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
