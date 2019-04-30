@@ -19,9 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
         NotificarePushLib.shared().initialize(withKey: nil, andSecret: nil)
         NotificarePushLib.shared().delegate = self
         NotificarePushLib.shared().launch()
-        if (launchOptions != nil) {
-            NotificarePushLib.shared().didFinishLaunching(options: launchOptions!)
-        }
+        NotificarePushLib.shared().didFinishLaunching(options: launchOptions!)
         
         
         if #available(iOS 10.0, *) {
