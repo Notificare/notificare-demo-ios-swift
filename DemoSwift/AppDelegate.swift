@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
         NotificarePushLib.shared().initialize(withKey: nil, andSecret: nil)
         NotificarePushLib.shared().delegate = self
         NotificarePushLib.shared().launch()
-        NotificarePushLib.shared().didFinishLaunching(options: launchOptions!)
-        
+        NotificarePushLib.shared().didFinishLaunching(options: launchOptions);
         
         if #available(iOS 10.0, *) {
             NotificarePushLib.shared().presentationOptions = .alert
@@ -32,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
     
     func notificarePushLib(_ library: NotificarePushLib, onReady application: NotificareApplication) {
         NotificarePushLib.shared().registerForNotifications()
+        
     }
     
     func notificarePushLib(_ library: NotificarePushLib, didRegister device: NotificareDevice) {
@@ -45,15 +45,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
             NotificarePushLib.shared().startLocationUpdates()
         } else {
             let alert = UIAlertController(title: "Notificare", message: "Do you want to start location updates and receive alerts when you near by?", preferredStyle: .alert)
-            
+
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
                 NotificarePushLib.shared().startLocationUpdates()
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            
+
             let navController = window?.rootViewController as? UINavigationController
             navController?.present(alert, animated: true)
         }
+        
+        
     }
     
     func notificarePushLib(_ library: NotificarePushLib, didReceiveRemoteNotificationInBackground notification: NotificareNotification, withController controller: Any?) {
