@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
     
     var window: UIWindow?
     var myString: String?
+    var fakeOnboardingIsDone: Bool? = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -30,7 +31,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
     }
     
     func notificarePushLib(_ library: NotificarePushLib, onReady application: NotificareApplication) {
-        NotificarePushLib.shared().registerForNotifications()
+        
+        if (NotificarePushLib.shared().remoteNotificationsEnabled()) {
+            NotificarePushLib.shared().registerForNotifications()
+        } else {
+            let alert = UIAlertController(title: "Notificare", message: "Do you want to receive notifications?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                NotificarePushLib.shared().registerForNotifications()
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            
+            let navController = window?.rootViewController as? UINavigationController
+            navController?.present(alert, animated: true)
+        }
         
     }
     
@@ -40,19 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
                 //Tag added
             }
         })
-        
+
         if (NotificarePushLib.shared().locationServicesEnabled()) {
             NotificarePushLib.shared().startLocationUpdates()
-        } else {
-            let alert = UIAlertController(title: "Notificare", message: "Do you want to start location updates and receive alerts when you near by?", preferredStyle: .alert)
-
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                NotificarePushLib.shared().startLocationUpdates()
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-
-            let navController = window?.rootViewController as? UINavigationController
-            navController?.present(alert, animated: true)
         }
         
         
