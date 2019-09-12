@@ -62,6 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
         
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        print(url)
+        return true;
+    }
+    
     func notificarePushLib(_ library: NotificarePushLib, didReceiveRemoteNotificationInBackground notification: NotificareNotification, withController controller: Any?) {
         let navController = window?.rootViewController as? UINavigationController
         NotificarePushLib.shared().present(notification, in: navController!, withController: controller as Any)
