@@ -1,7 +1,312 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:../DemoSwift/Libs/notificare-push-lib-2.2.3"
+      name = "notificare-push-lib-2.2.3">
+      <FileRef
+         location = "group:DefaultTheme.bundle">
+      </FileRef>
+      <Group
+         location = "group:NotificarePushLib"
+         name = "NotificarePushLib">
+         <FileRef
+            location = "group:NotificareMap.h">
+         </FileRef>
+         <FileRef
+            location = "group:NSData+Hex.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareVideo.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareWebView.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareSMS.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareApplication.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2Request.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareCallback.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareBrowser.h">
+         </FileRef>
+         <FileRef
+            location = "group:NSString+Utils.h">
+         </FileRef>
+         <FileRef
+            location = "group:SKProduct+priceAsString.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2AccountStore.h">
+         </FileRef>
+         <FileRef
+            location = "group:NSURL+NotificareNXOAuth2.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareAttachment.h">
+         </FileRef>
+         <FileRef
+            location = "group:NSDate+TimeAgo.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2ConnectionDelegate.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareLocation.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareStorage.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2ClientDelegate.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareURLScheme.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareDeviceManager.h">
+         </FileRef>
+         <FileRef
+            location = "group:UIImage+FromBundle.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareImage.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2TrustDelegate.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareTelephone.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareEventLogger.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareAlert.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareStore.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareApp.h">
+         </FileRef>
+         <FileRef
+            location = "group:ActionDelegate.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2Constants.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2.h">
+         </FileRef>
+         <FileRef
+            location = "group:NSString+FromBundle.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareSystemNotification.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareAppDelegateSurrogate.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNetworkHost.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2FileStreamWrapper.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareAsset.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareRegion.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNetworkOperation.h">
+         </FileRef>
+         <FileRef
+            location = "group:NSString+NotificareNXOAuth2.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2Client.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNetworkReachability.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNone.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareManagedDeviceInbox.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2PostBodyPart.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificarePush.h">
+         </FileRef>
+         <FileRef
+            location = "group:ActionType.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareScannables.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2PostBodyStream.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificarePushLib.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2Account.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareBeacon.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareContent.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareDevice.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareLoyalty.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2Account+Private.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareInboxManager.h">
+         </FileRef>
+         <FileRef
+            location = "group:UIColor+Hex.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificationDelegate.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareURL.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareActions.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareCustom.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareProduct.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareDefinitions.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareHeading.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareSegment.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareScannable.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareGeo.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNetworkWrapper.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareUserData.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareAction.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2Connection.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareDeviceInbox.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificationType.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificarePassbook.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareCrashReport.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareWebPass.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareUserPreference.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareQRCodeScanner.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNXOAuth2AccessToken.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareMail.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareMarker.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareVisit.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareMonetize.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareAppConfig.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareAuth.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareLogging.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareRate.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareDeviceDnD.h">
+         </FileRef>
+         <FileRef
+            location = "group:Notificare.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareUser.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificareNotification.h">
+         </FileRef>
+         <FileRef
+            location = "group:NotificarePass.h">
+         </FileRef>
+         <FileRef
+            location = "group:NSData+NotificareNXOAuth2.h">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Notificare.plist">
+      </FileRef>
+      <FileRef
+         location = "group:NotificareManagedModels.bundle">
+      </FileRef>
+      <FileRef
+         location = "group:libNotificarePushLib.a">
+      </FileRef>
+   </Group>
    <FileRef
-      location = "self:DemoSwift.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
