@@ -39,6 +39,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.inboxItems.removeAllObjects()
         NotificarePushLib.shared().inboxManager.fetchInbox({(_ response: Any?, _ error: Error?) -> Void in
             if error == nil {
+                
+                for item in (response as! [NotificareDeviceInbox]) {
+                    print("\(item.message)")
+                }
+                
                 self.inboxItems.addObjects(from: response as! [Any])
                 self.tableView.reloadData()
             }
