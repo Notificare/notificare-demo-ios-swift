@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
     
     func notificarePushLib(_ library: NotificarePushLib, onReady application: NotificareApplication) {
         
+        
         if (NotificarePushLib.shared().remoteNotificationsEnabled()) {
             NotificarePushLib.shared().registerForNotifications()
         } else {
@@ -45,10 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
             let navController = window?.rootViewController as? UINavigationController
             navController?.present(alert, animated: true)
         }
+
         
     }
     
     func notificarePushLib(_ library: NotificarePushLib, didRegister device: NotificareDevice) {
+        print(device.deviceID)
+        
         NotificarePushLib.shared().addTag("tag_swift", completionHandler: {(_ response: Any?, _ error: Error?) -> Void in
             if error == nil {
                 //Tag added
@@ -62,9 +66,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
         
     }
     
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        NotificarePushLib.shared().continue(userActivity, restorationHandler: restorationHandler);
+        
+        return true
+    }
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        NotificarePushLib.shared().handleOpen(url, withOptions: options)
         print(url)
         return true;
+    }
+    
+    func notificarePushLib(_ library: NotificarePushLib, didReceiveLocationServiceAuthorizationStatus status: NotificareGeoAuthorizationStatus) {
+        
+        if (NotificareGeoAuthorizationStatusAuthorizedAlways != status) {
+            
+        }
+    }
+    
+    func notificarePushLib(_ library: NotificarePushLib, didReceiveLocationServiceAccuracyAuthorization accuracy: NotificareGeoAccuracyAuthorization) {
+        
+        if (NotificareGeoAccuracyAuthorizationFull != accuracy) {
+            
+        }
+        
+        if (NotificarePushLib.shared().myDevice().locationServicesAuthStatus == "always" ||
+            NotificarePushLib.shared().myDevice().locationServicesAccuracyAuth != "full") {
+            
+        }
     }
     
     func notificarePushLib(_ library: NotificarePushLib, didReceiveRemoteNotificationInBackground notification: NotificareNotification, withController controller: Any?) {

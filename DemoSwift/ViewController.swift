@@ -75,6 +75,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 NotificarePushLib.shared().presentInboxItem(inboxItem, in: self.navigationController!, withController: response as Any)
             }
         })
+        
+        NotificarePushLib.shared().inboxManager.markAll(asRead: {(_ response: Any?, _ error: Error?) -> Void in
+            
+        })
     }
     
     @objc func login() {
