@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
     var myString: String?
@@ -25,6 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
         if #available(iOS 10.0, *) {
             NotificarePushLib.shared().presentationOptions = .alert
         }
+
+// Comment this out if you disable UNUserNotificationCenter delegate
+//        if #available(iOS 10.0, *) {
+//            let center = UNUserNotificationCenter.current()
+//            center.delegate = self
+//        }
         
         myString = "SOME STRING"
         return true
@@ -69,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
     func application(_ application: UIApplication,
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        
+
         NotificarePushLib.shared().continue(userActivity, restorationHandler: restorationHandler);
         
         return true
@@ -109,8 +115,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didLoadInbox"), object: Any?.self)
     }
     
+    func notificarePushLib(_ library: NotificarePushLib, shouldOpenSettings notification: NotificareNotification?) {
+        
+    }
+    
+    
     func notificarePushLib(_ library: NotificarePushLib, didLoadInbox items: [NotificareDeviceInbox]) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didLoadInbox"), object: Any?.self)
+    }
+    
+    func notificarePushLib(_ library: NotificarePushLib, didUpdateBadge badge: Int32) {
+        print(badge)
     }
     
     
@@ -142,6 +157,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
         NotificarePushLib.shared().handleAction(withIdentifier: identifier, forRemoteNotification: userInfo, withResponseInfo: nil, completionHandler: {(_ response: Any?, _ error: Error?) -> Void in
             completionHandler()
         })
+    }
+
+// Comment this out if you disable UNUserNotificationCenter delegate
+//    @available(iOS 10.0, *)
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//        NotificarePushLib.shared().willPresent(notification) { (options) in
+//            completionHandler(options)
+//        }
+//    }
+//
+//    @available(iOS 10.0, *)
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//        NotificarePushLib.shared().didReceive(response) {
+//            completionHandler()
+//        }
+//    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        NotificarePushLib.shared().openSettings(for: notification)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
