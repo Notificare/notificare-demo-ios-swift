@@ -21,10 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
         NotificarePushLib.shared().delegate = self
         NotificarePushLib.shared().launch()
         NotificarePushLib.shared().didFinishLaunching(options: launchOptions);
-        
         if #available(iOS 10.0, *) {
-            NotificarePushLib.shared().presentationOptions = .alert
+            if #available(iOS 12.0, *) {
+                NotificarePushLib.shared().authorizationOptions = [.alert,.badge,.sound,.provisional]
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            // Fallback on earlier versions
         }
+        
+//        if #available(iOS 10.0, *) {
+//            NotificarePushLib.shared().presentationOptions = .alert
+//        }
 
 // Comment this out if you disable UNUserNotificationCenter delegate
 //        if #available(iOS 10.0, *) {
@@ -38,37 +47,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NotificarePushLibDelegate
     
     func notificarePushLib(_ library: NotificarePushLib, onReady application: NotificareApplication) {
         
-        
-        if (NotificarePushLib.shared().remoteNotificationsEnabled()) {
-            NotificarePushLib.shared().registerForNotifications()
-        } else {
-            let alert = UIAlertController(title: "Notificare", message: "Do you want to receive notifications?", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                NotificarePushLib.shared().registerForNotifications()
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            
-            let navController = window?.rootViewController as? UINavigationController
-            navController?.present(alert, animated: true)
-        }
+        NotificarePushLib.shared().registerForNotifications()
+//        if (NotificarePushLib.shared().remoteNotificationsEnabled()) {
+//            NotificarePushLib.shared().registerForNotifications()
+//        } else {
+//            let alert = UIAlertController(title: "Notificare", message: "Do you want to receive notifications?", preferredStyle: .alert)
+//
+//            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+//                NotificarePushLib.shared().registerForNotifications()
+//            }))
+//            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+//
+//            let navController = window?.rootViewController as? UINavigationController
+//            navController?.present(alert, animated: true)
+//        }
 
         
     }
     
+    
     func notificarePushLib(_ library: NotificarePushLib, didRegister device: NotificareDevice) {
-        print(device.deviceID)
+//        print(device.deviceID)
+//
+//        NotificarePushLib.shared().addTag("tag_swift", completionHandler: {(_ response: Any?, _ error: Error?) -> Void in
+//            if error == nil {
+//                //Tag added
+//            }
+//        })
+//
+//        if (NotificarePushLib.shared().locationServicesEnabled()) {
+//            NotificarePushLib.shared().startLocationUpdates()
+//        }
         
-        NotificarePushLib.shared().addTag("tag_swift", completionHandler: {(_ response: Any?, _ error: Error?) -> Void in
-            if error == nil {
-                //Tag added
-            }
-        })
-
-        if (NotificarePushLib.shared().locationServicesEnabled()) {
-            NotificarePushLib.shared().startLocationUpdates()
-        }
-        
+    }
+    
+    func notificarePushLib(_ library: NotificarePushLib, didChangeNotificationSettings granted: Bool) {
         
     }
     
