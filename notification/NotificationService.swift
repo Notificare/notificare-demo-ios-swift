@@ -17,15 +17,13 @@ class NotificationService: UNNotificationServiceExtension {
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
-        NotificarePushLib.shared().fetchAttachment(request.content.userInfo, completionHandler: {(_ response: Any?, _ error: Error?) -> Void in
+        NotificarePushLib.shared().handleNotificationRequest(request.content.userInfo, for: bestAttemptContent!, completionHandler: {(_ response: Any?, _ error: Error?) -> Void in
             if error == nil {
-                self.bestAttemptContent!.attachments = response as! [UNNotificationAttachment];
-                contentHandler(self.bestAttemptContent!);
+                contentHandler(response as! UNNotificationContent);
             } else {
                 contentHandler(self.bestAttemptContent!);
             }
         })
-        
     }
     
     override func serviceExtensionTimeWillExpire() {
